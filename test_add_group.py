@@ -16,7 +16,7 @@ class test_add_group(unittest.TestCase):
         self.wd.implicitly_wait(60)
     
     def test_add_group(self):
-        wd = self.wd 
+        wd = self.wd
         self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
         self.open_groups_page(wd)
