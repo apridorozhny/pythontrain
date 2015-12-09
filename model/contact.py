@@ -2,7 +2,7 @@ __author__ = "OBL"
 
 class Contact:
 
-    def __init__(self, name, middle, home, mobile, phone):
+    def __init__(self, name=None, middle=None, home=None, mobile=None, phone=None):
         self.name = name
         self.middle = middle
         self.home = home
