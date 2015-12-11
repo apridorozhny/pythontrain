@@ -5,6 +5,11 @@ class ContactHelper:
     def __init__(self, app):
         self.app = app
 
+    def return_to_main_page(self):
+        wd = self.app.wd
+        if not (wd.current_url.endswith("/addressbook/")):
+            wd.get("http://localhost:8080/addressbook/")
+
     def create(self, contact):
         wd = self.app.wd
     # init group creation
@@ -30,7 +35,7 @@ class ContactHelper:
 
     def delete_first_contact(self):
         wd = self.app.wd
-        wd.get("http://localhost:8080/addressbook/")
+        self.return_to_main_page()
         # select first contact
         wd.find_element_by_name("selected[]").click()
         # submit deletion
@@ -61,7 +66,7 @@ class ContactHelper:
 
     def modify_first_contact(self, new_contact_data):
         wd = self.app.wd
-        wd.get("http://localhost:8080/addressbook/")
+        self.return_to_main_page()
         self.select_first_contact()
     # open modif form
         wd.find_element_by_xpath("//div/div[4]/form[2]/table/tbody/tr[2]/td[8]/a/img").click()
