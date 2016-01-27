@@ -111,11 +111,11 @@ class ContactHelper:
             self.return_to_main_page()
             self.contact_cache = []
             for row in wd.find_elements_by_name("entry"):
-                cells = wd.find_elements_by_tag_name("td")
+                cells = row.find_elements_by_tag_name("td")
                 firstname = cells[2].text
                 lastname = cells[1].text
                 address = cells[3].text
-                id = row.find_element_by_tag_name("input").get_attribute("value")
+                id = cells[0].find_element_by_tag_name("input").get_attribute("value")
                 all_mail = cells[4].text
                 all_phones = cells[5].text
                 self.contact_cache.append(Contact(firstname=firstname, lastname=lastname, id=id, address=address,
